@@ -1,0 +1,100 @@
+header, main {
+    padding-left: 300px;
+}
+
+@media only screen and (max-width: 992px) {
+    header, main {
+        padding-left: 0;
+    }
+}
+
+#toolbarIconoDrawer {
+    display: block !important;
+    margin-left: 16px !important;
+}
+
+#toolbarTitulo {
+    margin: 0 !important;
+    padding: 0 !important;
+    transform: translateX(0%) !important;
+    position: inherit !important;
+    margin-left: 16px !important;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+header {
+    z-index: 100;
+}
+
+body>main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+    height: 100%;
+}
+
+#fabs {
+    position: fixed;
+    right: 16px;
+    bottom: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+#fabs > a:not(:last-child){
+  margin-bottom: 16px;
+}
+
+#map {
+  width: 100%;
+    height: 100%;
+}
+
+.dialogo {
+    background-color: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    padding: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.dialogo>.card {
+    width: 70%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.dialogo>.card>a {
+    flex: 1;
+    padding: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    overflow-y: auto;;
+    color: black;
+}
+
+.dialogo>.card>.botones {
+    padding: 16px;
+    display: flex;
+    justify-content: flex-end;
+}

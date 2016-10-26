@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>DondeGO</title>
+
+    <!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="Styles/JuegoCam.css">
+
+</head>
+
+<body>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="Scripts/Libs/aframe.js"></script>
+    <script src="Scripts/Libs/camera.js"></script>
+
+    <a-scene fog="type: linear; color: #AAB; far: 30; near: 0">
+
+        <a-camera position="0 1 0">
+            <a-cursor color="#2E3A87"></a-cursor>
+        </a-camera>
+
+
+
+        <a-assets>
+            </a-asset-item>
+            <a-asset-item id="virus" src="Resources/model.dae"></a-asset-item>
+
+        </a-assets>
+
+    </a-scene>
+
+    <video id="inputVideo" autoplay loop></video>
+
+    <div id="hud">
+        <div id="textoRestantes"></div>
+        <div id="textoNuevoCada"></div>
+
+        <div id="textoPuntaje"></div>
+
+        <a id="btnCondon" class="btn waves-effect">Usar condon</a>
+
+        <div id="dialogoPartidaGanada" class="dialogo" style="display:none">
+            <div class="card">
+                <a>¡Ganaste la partida!</a>
+                <div class="botones">
+                    <a id="btnInicio" class="btn waves-effect">Inicio</a>
+                    <a id="btnJugarDeNuevo" class="btn waves-effect">Jugar de Nuevo</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="dialogoInfo" class="dialogo" style="display:none">
+            <div class="card">
+                <a>¡Cuidado! Te estan atacando los virus del hiv. Para combatirlos haz click sobre ellos y desapareceran. Pero ten cuidado... cuando mas tiempo pase apareceran mas virus y ademas, mas rapidamente. </a>
+                <div class="botones">
+                    <a id="btnOkInfo" class="btn waves-effect">Ok</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+    <script type="text/javascript" src="Scripts/Comun.js"></script>
+    <script src="Scripts/JuegoCam.js"></script>
+    </div>
+
+</body>
+
+</html>

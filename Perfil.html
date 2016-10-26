@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+    <link rel="stylesheet" href="Styles/Perfil.css">
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body>
+
+    <!-- Menu Lateral -->
+    <ul id="slide-out" class="side-nav fixed">
+        <li><a href="Inicio.html">Inicio</a></li>
+        <li><a href="JuegoCam.html">Jugar</a></li>
+        <li><a href="Perfil.html">Perfil</a></li>
+    </ul>
+
+    <!-- Toolbar -->
+    <header>
+        <nav>
+            <a id='toolbarIconoDrawer' href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+            <a id='toolbarTitulo' href="#" class="brand-logo">Donde GO > Mi Perfil</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <div id="contenedorPuntaje">
+            <label id="textoPuntaje"></label>
+        </div>
+
+        <div class="separador"></div>
+
+        <div id="contenedorCondones">
+            <label id="textoCondones"></label>
+        </div>
+
+        <div class="separador"></div>
+
+        <div id="contenedorMedallas">
+            <label class="titulo">Medallas ganadas</label>
+            <div id="listadoMedallas" class="collection">
+            </div>
+        </div>
+
+    </main>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+
+    <script type="text/javascript" src="Scripts/Comun.js"></script>
+    <script type="text/javascript" src="Scripts/Perfil.js"></script>
+
+</body>
+
+</html>

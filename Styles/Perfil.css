@@ -1,0 +1,91 @@
+header, main {
+    padding-left: 300px;
+}
+
+@media only screen and (max-width: 992px) {
+    header, main {
+        padding-left: 0;
+    }
+}
+
+#toolbarIconoDrawer {
+    display: block !important;
+    margin-left: 16px !important;
+}
+
+#toolbarTitulo {
+    margin: 0 !important;
+    padding: 0 !important;
+    transform: translateX(0%) !important;
+    position: inherit !important;
+    margin-left: 16px !important;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+header {
+    z-index: 100;
+}
+
+body>main {
+    flex: 1;
+    overflow-y: auto;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#contenedorPuntaje {
+    width: 100%;
+    display: flex;
+    margin-top: 16px;
+    justify-content: center;
+}
+
+#textoPuntaje {
+    font-size: 2rem;
+}
+
+#contenedorCondones {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#textoCondones {
+    font-size: 2rem;
+}
+
+.separador {
+    background-color: black;
+    width: 100%;
+    height: 1px;
+    margin: 8px;
+    opacity: 0.5;
+}
+
+#contenedorMedallas{
+flex:1;
+overflow-y: auto;
+height: 100%;
+margin-top: 16px;
+
+}
+
+
+#contenedorMedallas > .titulo{
+  font-size: 1.5rem;
+  color:black;
+  margin-left: 16px;
+}
