@@ -6,17 +6,10 @@ var cantidadInicial = 10;
 var delay_nuevo_original = 10000;
 var delay_nuevo = delay_nuevo_original;
 
+var cams = [];
+var index_camActual;
+
 document.querySelector('a-scene').addEventListener('render-target-loaded', function() {
-
-
-    //Cargo la camara
-    var vid = document.querySelector('#inputVideo');
-    cameraSource.start({
-        videoElement: vid,
-        callback: function() {
-            console.log('videoooo')
-        }
-    });
 
     //Agrego 10 virus inicialmente
     for (var i = 0; i < cantidadInicial; i++) {
@@ -27,6 +20,28 @@ document.querySelector('a-scene').addEventListener('render-target-loaded', funct
     $('#textoNuevoCada').text('Nuevo virus cada: ' + (delay_nuevo / 1000) + 'seg');
     agregarNuevoVirus();
 });
+
+function verVideo(cam) {
+    var constraints = {
+        audio: false,
+        video: {
+            deviceId: cam.deviceId
+        }
+    };
+
+    var vid = document.querySelector('#inputVideo');
+
+    navigator.mediaDevices.getUserMedia(constraints)
+        .then(function(mediaStream) {
+            vid.srcObject = mediaStream;
+            vid.onloadedmetadata = function(e) {
+                vid.play();
+            };
+        })
+        .catch(function(err) {
+            console.log(err.name + ": " + err.message);
+        });
+}
 
 function agregarNuevoVirus() {
     if (ganado) return;
@@ -135,18 +150,66 @@ $(function() {
         window.location.href = "JuegoCam.html";
     });
 
-    $('#btnInicio').click(function() {
-        window.location.href = "Inicio.html";
+    //Cargo la camara
+    $('#btnFlip').click({
+        if (cams.length == 0) {
+            Materialize.toast('No tiene mas camaras', 5000);
+            return;
+        }
+
+        Materialize.toast('Cambiando camara', 5000);
+
+        index_camActual++;
+        if (index_camActual >= cams.length) {
+            index_camActual = 0;
+        }
+
+        verVideo(cams[index_camActual]);
     });
 
+    navigator.mediaDevices.enumerateDevices()
+        .then(gotDevices);
 
-$('#dialogoInfo').fadeIn(300);
 
-$('#btnOkInfo').click(function(){
-  $('#dialogoInfo').fadeOut(300);
+    function gotDevices(deviceInfos) {
+        for (var i = 0; i !== deviceInfos.length; ++i) {
+            var deviceInfo = deviceInfos[i];
 
+            if (deviceInfo.kind === 'videoinput') {
+                cams.push(deviceInfo);
+            }
+        }
+
+        index_camActual = 1;
+        verVideo(cams[index_camActual]);
+    }
+
+    //mostrarDialogoInfo('¡Cuidado! Te estan atacando los virus del hiv. Para combatirlos haz click sobre ellos y desapareceran. Pero ten cuidado... cuando mas tiempo pase apareceran mas virus y ademas, mas rapidamente. Usando un condon podrás evitar la infeccion',
+    //      function() {
+    //        $('#dialogoInfo').fadeOut(300);
+    //    },
+    //    function() {
+    //          window.location.href = "https://es.wikipedia.org/wiki/Virus_de_la_inmunodeficiencia_humana";
+    //    });
 });
-});
+
+function mostrarDialogoInfo(texto, callback, callbackInfo) {
+
+    $('#textoDialogo').text(texto);
+
+    $('#btnMasDialogo').unbind('click');
+    $('#btnMasDialogo').click(function() {
+        callbackInfo();
+    });
+
+    $('#btnOkDialogo').unbind('click');
+    $('#btnOkDialogo').click(function() {
+        callback();
+    });
+
+    $('#dialogoInfo').fadeIn(300);
+
+}
 
 function actualizarPuntaje() {
     var puntaje = getPuntaje();

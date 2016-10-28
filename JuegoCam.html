@@ -5,10 +5,11 @@
     <meta charset="utf-8">
     <title>DondeGO</title>
 
-    <!--Import Google Icon Font-->
-    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
     <!--Import materialize.css-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+
+    <link rel="stylesheet" href="Styles/Comun.css">
     <link rel="stylesheet" type="text/css" href="Styles/JuegoCam.css">
 
 </head>
@@ -19,51 +20,75 @@
     <script src="Scripts/Libs/aframe.js"></script>
     <script src="Scripts/Libs/camera.js"></script>
 
-    <a-scene fog="type: linear; color: #AAB; far: 30; near: 0">
+    <!-- Menu Lateral -->
+    <ul id="slide-out" class="side-nav fixed">
+        <li><a href="Inicio.html">Inicio</a></li>
+        <li><a href="JuegoCam.html">Jugar</a></li>
+        <li><a href="Perfil.html">Perfil</a></li>
+    </ul>
 
-        <a-camera position="0 1 0">
-            <a-cursor color="#2E3A87"></a-cursor>
-        </a-camera>
+    <!-- Toolbar -->
+    <header>
+        <nav>
+            <a id='toolbarTitulo' href="#" class="brand-logo">Donde GO > Juego</a>
+        </nav>
+    </header>
+
+    <main>
+        <a-scene fog="type: linear; color: #AAB; far: 30; near: 0">
+
+            <a-camera position="0 1 0">
+                <a-cursor color="#2E3A87"></a-cursor>
+            </a-camera>
 
 
 
-        <a-assets>
-            </a-asset-item>
-            <a-asset-item id="virus" src="Resources/model.dae"></a-asset-item>
+            <a-assets>
+                </a-asset-item>
+                <a-asset-item id="virus" src="Resources/model.dae"></a-asset-item>
 
-        </a-assets>
+            </a-assets>
 
-    </a-scene>
+        </a-scene>
 
-    <video id="inputVideo" autoplay loop></video>
+        <video id="inputVideo" autoplay loop></video>
 
-    <div id="hud">
-        <div id="textoRestantes"></div>
-        <div id="textoNuevoCada"></div>
-
-        <div id="textoPuntaje"></div>
-
-        <a id="btnCondon" class="btn waves-effect">Usar condon</a>
-
-        <div id="dialogoPartidaGanada" class="dialogo" style="display:none">
-            <div class="card">
-                <a>¡Ganaste la partida!</a>
-                <div class="botones">
-                    <a id="btnInicio" class="btn waves-effect">Inicio</a>
-                    <a id="btnJugarDeNuevo" class="btn waves-effect">Jugar de Nuevo</a>
-                </div>
+        <div id="hud">
+            <div id="contenedorSuperior">
+                <div id="textoPuntaje"></div>
+                <div id="textoRestantes"></div>
+                <div id="textoNuevoCada"></div>
             </div>
+
+
+            <a id="btnCondon" class="btn waves-effect">Usar condon</a>
+            <a id="btnFlip" class="btn waves-effect">Cambiar</a>
+
         </div>
 
-        <div id="dialogoInfo" class="dialogo" style="display:none">
-            <div class="card">
-                <a>¡Cuidado! Te estan atacando los virus del hiv. Para combatirlos haz click sobre ellos y desapareceran. Pero ten cuidado... cuando mas tiempo pase apareceran mas virus y ademas, mas rapidamente. </a>
-                <div class="botones">
-                    <a id="btnOkInfo" class="btn waves-effect">Ok</a>
-                </div>
+
+
+    </main>
+
+
+    <div id="dialogoPartidaGanada" class="dialogo" style="display:none">
+        <div class="card">
+            <a>¡Ganaste la partida! Ganaste 500 puntos</a>
+            <div class="botones">
+                <a id="btnInicio" class="btn waves-effect">Inicio</a>
+                <a id="btnJugarDeNuevo" class="btn waves-effect">Jugar de Nuevo</a>
             </div>
         </div>
+    </div>
 
+    <div id="dialogoInfo" class="dialogo" style="display:none">
+        <div class="card">
+            <a id="textoDialogo"></a>
+            <div class="botones">
+                <a id="btnMasDialogo" class="btn waves-effect">Mas Información</a>
+                <a id="btnOkDialogo" class="btn waves-effect">Aceptar</a>
+            </div>
+        </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>

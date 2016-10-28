@@ -17,10 +17,20 @@ video, img {
     height: 100%;
 }
 
-#textoRestantes {
+#contenedorSuperior {
+    padding: 16px;
+    padding-bottom: 56px;
+    background: transparent;
+    background: -webkit-linear-gradient(rgba(255, 255, 255, 0.7), transparent);
+    background: -o-linear-gradient(rgba(255, 255, 255, 0.7), transparent);
+    background: -moz-linear-gradient(rgba(255, 255, 255, 0.7), transparent);
+    background: linear-gradient(rgba(255, 255, 255, 0.7), transparent);
     position: absolute;
-    left: 16px;
-    top: 16px;
+    left: 0;
+    right: 0;
+}
+
+#textoRestantes {
     font-size: 1.5rem;
     color: black;
 }
@@ -34,9 +44,6 @@ video, img {
 }
 
 #textoNuevoCada {
-    position: absolute;
-    left: 16px;
-    top: 48px;
     font-size: 1rem;
     color: black;
 }
@@ -53,42 +60,13 @@ video, img {
     font-size: 1rem;
 }
 
-.dialogo {
-    background-color: rgba(0, 0, 0, 0.6);
-    position: relative;
-    padding: 16px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-}
-
-.dialogo>.card {
-    width: 70%;
-    height: 50%;
-    display: flex;
-    flex-direction: column;
-}
-
-.dialogo>.card>a {
-    flex: 1;
-    padding: 16px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+#btnFlip {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;  
+    color: white;
     font-size: 1rem;
-    overflow-y: auto;;
-    color: black;
 }
-
-#dialogoPartidaGanada>.card>a{
-  font-size: 3rem;
-
-}
-
-.dialogo>.card>.botones {
-    padding: 16px;
-    display: flex;
-    justify-content: flex-end;
+#dialogoPartidaGanada>.card>a {
+    font-size: 3rem;
 }
